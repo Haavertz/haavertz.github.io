@@ -25,6 +25,7 @@ span { font-size: 12px; }
 .linksquare:hover { filter: brightness(.6); }
 
 .desc {
+.desc {
 	line-height: 25px;
 	margin:  10px 0;
 	color: #808080;
