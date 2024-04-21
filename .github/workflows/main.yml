@@ -1,0 +1,25 @@
+name: Set GitHub Pages Domain
+
+on:
+  # Executa o workflow ao ser acionado manualmente a partir da aba Actions
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  set-domain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Custom Domain
+        run: |
+          echo "www.seudominio.com" > CNAME
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@users.noreply.github.com"
+          git add CNAME
+          git commit -m "Set custom domain to www.haavertz.com"
+          git push origin main
