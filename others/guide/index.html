@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Haavertz" name="description">
     <meta content="#1e1e1e" name="theme-color">
-    <script src="./assets/switch.js?2.0" type="text/javascript"></script>
+    <script src="./switch.js" type="text/javascript"></script>
     <!-- Open Graph Protocol -->
     <meta content="website" property="og:type">
     <meta content="https://haavertz.com" property="og:url">
@@ -16,37 +16,70 @@
     <meta content="pt_BR" property="og:locale">
     <meta content="gamer; developer; community owner;" property="og:description">
 
-    <link href="./assets/favicon.png" rel="shortcut icon">
+    <link href="../../assets/favicon.png" rel="shortcut icon">
     <title>Guide VolleyApp | Haavertz</title>
 
     <style>
         :root {
+            --primary-color: #9122FF;
+            --secondary-color: #f4f4f4;
+            --text-color: #333;
+            --text-hover-color: #9122FF;
+            --bg-color: #fff;
+            --highlight-color: #f9f9f9;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body {
-            background-color: #f4f4f4;
-            color: #333;
+        header {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: var(--bg-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            background-color: var(--bg-color);
+            color: var(--text-hover-color);
         }
 
         main {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: var(--bg-color);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: var(--text-color);
         }
 
         h1 span {
-            color: #9122FF;
+            color: var(--primary-color);
         }
 
         .notes-wrapper {
@@ -54,10 +87,10 @@
         }
 
         .blockquote {
-            margin: 0px;
+            margin: 0;
             padding: 20px;
-            background-color: #f9f9f9;
-            border-left: 5px solid #9122FF;
+            background-color: var(--highlight-color);
+            border-left: 5px solid var(--primary-color);
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
         }
@@ -70,28 +103,23 @@
             line-height: 1.6;
         }
 
-        .navigation {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .navigation a {
-            color: #9122FF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .navigation a:hover {
-            text-decoration: underline;
+        #news {
+            display: none;
         }
     </style>
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <a onclick="showSection('guide')" id="guide-link">Guia</a>
+            <a onclick="showSection('news')" id="news-link">Novidades</a>
+        </nav>
+    </header>
+
     <main>
         <h1>Volley<span>App</span> Guide</h1>
         
-        <div class="notes-wrapper">
+        <div class="notes-wrapper" id="guide">
             <blockquote class="blockquote">
                 <h2>Introdução</h2>
                 <p>Bem-vindo ao VolleyApp, seu companheiro ideal para organizar jogos de volley de maneira equilibrada e divertida. Este guia irá ajudá-lo a entender como usar cada funcionalidade do aplicativo para garantir que todos os jogadores tenham uma experiência justa e emocionante.</p>
@@ -115,18 +143,24 @@
                 <p>A seção <strong>Mais</strong> é dedicada às configurações do aplicativo. Aqui, você pode ajustar preferências, acessar ajuda e suporte, e personalizar o aplicativo de acordo com suas necessidades.</p>
                 
                 <h2>Formando Times Equilibrados</h2>
-                <p>O objetivo principal do VolleyApp é formar times equilibrados. Para isso, ao criar ou editar grupos de jogadores, certifique-se de definir o nível de habilidade de cada jogador de 1 a 10. Durante a formação dos times, distribua os jogadores de forma que cada time tenha uma média de habilidades similar. Isso garante que todos os jogos sejam competitivos e divertidos para todos os participantes.</p>
+                <p>O objetivo principal do VolleyApp é formar times equilibrados. Para isso, ao criar ou editar jogadores, certifique-se de definir o nível de habilidade de cada jogador de 1 a 10, baseado na lista de jogo. Durante a formação dos times, distribua os jogadores de forma que cada time tenha uma média de habilidades similar. Isso garante que todos os jogos sejam competitivos e divertidos para todos os participantes.</p>
+            </blockquote>
+        </div>
+
+        <div class="notes-wrapper" id="news">
+            <blockquote class="blockquote">
+                <h2>Novidades</h2>
+                <p>Estamos constantemente melhorando o VolleyApp para oferecer a melhor experiência possível. Aqui estão algumas das novidades mais recentes:</p>
+                <ul>
+                    <li>Agora você pode editar o nível de habilidade dos jogadores diretamente na seção de Usuário, facilitando a atualização das informações de acordo com o desempenho nos jogos.</li>
+                    <li>A interface da seção Grupos foi aprimorada para permitir uma navegação mais intuitiva e uma gestão mais eficiente dos grupos de jogadores.</li>
+                    <li>Adicionamos a funcionalidade de registrar a presença dos jogadores na seção Lista, ajudando a monitorar quem está presente nos jogos.</li>
+                    <li>As configurações do aplicativo foram expandidas para oferecer mais opções de personalização e suporte aos usuários.</li>
+                </ul>
                 
                 <p>Obrigado por usar o VolleyApp! Esperamos que você aproveite ao máximo esta ferramenta para organizar seus jogos de volley.</p>
             </blockquote>
         </div>
-
-        
-        <div id="home" class="home"></div>
-        <div id="group" class="group"></div>
-        <div id="user" class="user"></div>
-        <div id="list" class="list"></div>
-        <div id="more" class="more"></div>
     </main>
 </body>
 </html>
