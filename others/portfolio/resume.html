@@ -301,15 +301,15 @@
     list-style: none;
     counter-reset: certCount;
     padding-left: 1.5em;
-  }
-
-  ol.certifications li {
-    counter-increment: certCount;
-  }
-
-  ol.certifications li::before {
-    content: counter(certCount, decimal-leading-zero) " – ";
-  }
+    }
+  
+    ol.certifications li {
+      counter-increment: certCount;
+    }
+  
+    ol.certifications li::before {
+      content: counter(certCount, decimal-leading-zero) " – ";
+    }
   </style>
 </body>
 </html>
