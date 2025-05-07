@@ -1,10 +1,14 @@
-<html><head>
+<!DOCTYPE html>
+<html>
+<head>
   <meta charset="utf-8">
   <title>Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <meta name="description" content="">
+  <meta name="title" content="Resume Haavertz">
+  <meta name="description" content="Resume of Gleison Silva, a systems developer from Brazil with experience in web development.">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
   <aside>
@@ -30,9 +34,9 @@
         <h2>Work experience</h2>
         <article>
           <strong>Hub Fábricas – Web Developer at Senac MS</strong>
-          <time datetime="2023-05">May 2023 – Aug 2024</time>
+          <time datetime="2024-08">May 2023 – Aug 2024</time>
           <em>
-            <a href="https://senachub.ms.senac.br/fabricas/" target="_blank">Senac Hub Fábricas</a>
+            <a href="https://senachub.ms.senac.br/fabricas/" target="_blank" >Senac Hub Fábricas</a>
             <q>
               A site developed by Senac Hub Academy students to showcase the project‑based methodology and highlight projects built by the Software, Games, Graphic Computing and Audiovisual Factories.
             </q>
@@ -62,7 +66,7 @@
         <h2>Education</h2>
         <article>
           <strong>Systems Analysis and Development Technician</strong>
-          <time datetime="2027">Mar 2023 - Jul 2024 <i></i></time>
+          <time datetime="2024-07">Mar 2023 - Jul 2024 <i></i></time>
           <em>
             <a href="https://ww3.ms.senac.br/" target="_blank">Senac</a>
             <q>Technical program focused on systems analysis and practical software development.</q>
@@ -71,7 +75,7 @@
         </article>
         <article>
           <strong>Technologist in System Analysis and Development (<i>in progress</i>)</strong>
-          <time datetime="2027">Fev 2025 -  Dez 2027</time>
+          <time datetime="2027-12">Fev 2025 -  Dez 2027</time>
           <em>
             <a href="https://ww3.ms.senac.br/" target="_blank">Senac University</a> 
             <q>three‑year program in systems analysis and software development with hands‑on projects.</q>
@@ -87,6 +91,8 @@
             <dt>Teamwork and collaboration</dt>
             <dt>Adaptability</dt>
             <dt>Imaginative</dt>
+            <dt>integrity</dt>
+            <dt>Agile methodologies</dt>
           </dl>
         </article>
         <article>
@@ -136,6 +142,7 @@
             <li>Operating Systems Basics | Cisco Networking Academy | 12h | 2025;</li>
             <li>Computer Hardware Basics | Cisco Networking Academy | 6h | 2025;</li>
           </ol>
+          <span onclick="toggleCertifications()" id="learn_more" style="color: var(--color-fg-subtle);">learn more...</span>
         </article>
       </section>
     </div>
@@ -311,21 +318,53 @@
 
     ol.certifications {
       width: 100%;
+      height: 175px;
+      overflow-y: hidden;
       font-size: .8rem;
       font-family: "Segoe UI Emoji", "Roboto", SFMono-Regular, Sans-Serif;
       list-style: none;
       counter-reset: certCount;
       padding: .8rem .2rem;
       margin: 0;
+      transition: height 0.3s ease;
     }
   
-    ol.certifications li {
-      counter-increment: certCount;
+    #learn_more {
+      color: var(--color-more-default);
+      cursor: pointer;
+      transition: color 0.3s ease, opacity 0.3s ease;
     }
-  
-    ol.certifications li::before {
-      content: counter(certCount, decimal-leading-zero) " – ";
+
+    #learn_more.clicked {
+      color: var(--color-more-active, blue);
+      opacity: 0.5;
     }
+    
+    ol.certifications.expanded { height: auto; }
+    ol.certifications li { counter-increment: certCount; }
+    ol.certifications li::before { content: counter(certCount, decimal-leading-zero) " – "; }
+
   </style>
+  <script>
+    let state = false;
+    function toggleCertifications() {
+      const certifications_list = document.querySelector("ol.certifications");
+      const learn_more_span = document.getElementById("learn_more");
+      
+      state = !state;
+      
+      if (state) {
+        certifications_list.classList.add("expanded");
+        learn_more_span.textContent = "show less...";
+        learn_more_span.style.marginTop = "-.4rem"
+        learn_more_span.classList.add("clicked");
+      } else {
+        certifications_list.classList.remove("expanded");
+        learn_more_span.textContent = "learn more...";
+        learn_more_span.style.marginTop = ".3rem"
+        learn_more_span.classList.remove("clicked");
+      }
+    }
+  </script>
 </body>
 </html>
