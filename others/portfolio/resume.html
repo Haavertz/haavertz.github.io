@@ -74,8 +74,8 @@
           <address>Brazil</address>
         </article>
         <article>
-          <strong>Technologist in System Analysis and Development (<i>in progress</i>)</strong>
-          <time datetime="2027-12">Fev 2025 -  Dez 2027</time>
+          <strong>Technologist in Systems Analysis and Development (<i>in progress</i>)</strong>
+          <time datetime="2027-12">Feb 2025 -  Dez 2027</time>
           <em>
             <a href="https://ww3.ms.senac.br/" target="_blank">Senac University</a> 
             <q>three‑year program in systems analysis and software development with hands‑on projects.</q>
@@ -142,8 +142,8 @@
             <li>Operating Systems Basics | Cisco Networking Academy | 12h | 2025;</li>
             <li>Computer Hardware Basics | Cisco Networking Academy | 6h | 2025;</li>
           </ol>
-          <span onclick="toggleCertifications()" id="learn_more" style="color: var(--color-fg-subtle);">learn more...</span>
         </article>
+        <span onclick="toggleCertifications()" id="learn_more" style="color: var(--color-fg-subtle); ">learn more...</span>
       </section>
     </div>
   </main>
@@ -324,23 +324,19 @@
       font-family: "Segoe UI Emoji", "Roboto", SFMono-Regular, Sans-Serif;
       list-style: none;
       counter-reset: certCount;
-      padding: .8rem .2rem;
+      padding: .5rem .2rem;
       margin: 0;
-      transition: height 0.3s ease;
+      transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
     }
   
     #learn_more {
       color: var(--color-more-default);
       cursor: pointer;
-      transition: color 0.3s ease, opacity 0.3s ease;
+      transition: color 0.3s ease-out, opacity 0.3s ease;
     }
 
-    #learn_more.clicked {
-      color: var(--color-more-active, blue);
-      opacity: 0.5;
-    }
-    
-    ol.certifications.expanded { height: auto; }
+    #learn_more.clicked { opacity: 0.5; }
+    ol.certifications.expanded { height: auto; padding-bottom: 0; }
     ol.certifications li { counter-increment: certCount; }
     ol.certifications li::before { content: counter(certCount, decimal-leading-zero) " – "; }
 
@@ -353,18 +349,17 @@
       
       state = !state;
       
+      certifications_list.style.transition = 'height 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      
       if (state) {
         certifications_list.classList.add("expanded");
         learn_more_span.textContent = "show less...";
-        learn_more_span.style.marginTop = "-.4rem"
-        learn_more_span.classList.add("clicked");
       } else {
         certifications_list.classList.remove("expanded");
         learn_more_span.textContent = "learn more...";
-        learn_more_span.style.marginTop = ".3rem"
-        learn_more_span.classList.remove("clicked");
       }
     }
   </script>
+  <noscript>Sorry, your browser does not support JavaScript!</noscript> 
 </body>
 </html>
