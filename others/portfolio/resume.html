@@ -2,12 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <meta name="title" content="Resume">
   <meta name="description" content="Resume of Gleison Silva, a systems developer from Brazil with experience in web development.">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer type="text/Javascript"></script>
   <link rel="shortcut icon" href="../../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
@@ -111,9 +113,10 @@
         </article>
         <article>
           <strong>Programming/scripting/markup/queries languages and tools</strong>
-          <dl class="labels">
+          <dl class="labels languages">
             <dt>Kotlin</dt>
             <dt>JavaScript</dt>
+            <dt>TypeScript</dt>
             <dt>Python</dt>
             <dt>Go</dt>
             <dt>HTML</dt>
@@ -167,10 +170,10 @@
     </div>
   </main>
 
-<!--   <aside>
-   Case want get my portfolio in PDF <a href="/">click here.</a>
+  <aside>
+    If you want to get my resume in PDF, <a href="#" onclick="generatePDF()" >click here.</a>
   </aside>
- -->
+
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -359,7 +362,23 @@
     ol.certifications li::before { content: counter(certCount, decimal-leading-zero) " – "; }
 
   </style>
-  <script>
+  <script >
+
+    function generatePDF() {
+      const element = document.querySelector('main');
+      const certifications_list = document.querySelector("ol.certifications");
+
+      certifications_list.style.height = "100%"
+      const opt = {
+        filename:     'Gleison-Silva-Resume.pdf',
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scrollY: 0},
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+      certifications_list.style.height = "175px"
+    }
+
     let state = false;
     function toggleCertifications() {
       const certifications_list = document.querySelector("ol.certifications");
