@@ -367,9 +367,6 @@
 
     function generatePDF() {
       const element = document.querySelector('main');
-      const certifications_list = document.querySelector("ol.certifications");
-
-      certifications_list.style.height = "100%"
       const opt = {
         filename:     'Gleison-Silva-Resume.pdf',
         image:        { type: 'jpeg', quality: 1 },
@@ -377,7 +374,6 @@
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
       html2pdf().set(opt).from(element).save();
-      certifications_list.style.height = "175px"
     }
 
     let state = false;
