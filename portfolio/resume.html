@@ -170,9 +170,9 @@
     </div>
   </main>
 
-  <aside>
+  <!-- <aside>
     If you want to get my resume in PDF, <a href="#" onclick="generatePDF()" >click here.</a>
-  </aside>
+  </aside> -->
 
   <style>
     body {
@@ -182,7 +182,7 @@
       color: var(--color-fg-default);
       margin: 0;
       padding: 0;
-      background-color: #1e1e1e;
+      background-color: var(--color-bg-default);
     }
 
     aside {
@@ -192,6 +192,7 @@
     }
 
     :root {
+      --color-bg-default: #1e1e1e;
       --color-fg-default: #24292f;
       --color-fg-muted: #57606a;
       --color-fg-subtle: #6e7781;
@@ -355,6 +356,14 @@
       cursor: pointer;
       transition: color 0.3s ease-out, opacity 0.3s ease;
     }
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
     #learn_more.clicked { opacity: 0.5; }
     ol.certifications.expanded { height: auto; padding-bottom: 0; }
@@ -364,20 +373,20 @@
   </style>
   <script >
 
-    function generatePDF() {
-      const element = document.querySelector('main');
-      const certifications_list = document.querySelector("ol.certifications");
+    // function generatePDF() {
+    //   const element = document.querySelector('main');
+    //   const certifications_list = document.querySelector("ol.certifications");
 
-      certifications_list.style.height = "100%"
-      const opt = {
-        filename:     'Gleison-Silva-Resume.pdf',
-        image:        { type: 'jpeg', quality: 1 },
-        html2canvas:  { scrollY: 0},
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
-      certifications_list.style.height = "175px"
-    }
+    //   certifications_list.style.height = "100%"
+    //   const opt = {
+    //     filename:     'Gleison-Silva-Resume.pdf',
+    //     image:        { type: 'jpeg', quality: 1 },
+    //     html2canvas:  { scrollY: 0},
+    //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    //   };
+    //   html2pdf().set(opt).from(element).save();
+    //   certifications_list.style.height = "175px"
+    // }
 
     let state = false;
     function toggleCertifications() {
