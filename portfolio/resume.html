@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <meta name="title" content="Resume">
@@ -163,6 +162,7 @@
             <li>Computer Hardware Basics | Cisco Networking Academy | 6h | 2025;</li>
             <li>Introduction to Cybersecurity | Cisco Networking Academy | 6h | 2025;</li>
             <li>Linux 1 | Cisco Networking Academy | 70h | 2025;</li>
+            <li>JavaScript Essentials 2 | Cisco Networking Academy | 50h | 2025;</li>
           </ol> 
         </article>
         <span onclick="toggleCertifications()" id="learn_more" style="color: var(--color-fg-subtle);">learn more...</span>
@@ -375,9 +375,6 @@
 
     // function generatePDF() {
     //   const element = document.querySelector('main');
-    //   const certifications_list = document.querySelector("ol.certifications");
-
-    //   certifications_list.style.height = "100%"
     //   const opt = {
     //     filename:     'Gleison-Silva-Resume.pdf',
     //     image:        { type: 'jpeg', quality: 1 },
@@ -385,7 +382,6 @@
     //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     //   };
     //   html2pdf().set(opt).from(element).save();
-    //   certifications_list.style.height = "175px"
     // }
 
     let state = false;
