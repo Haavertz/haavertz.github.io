@@ -84,7 +84,7 @@ main {
   cursor: pointer;
   display: flex;
   margin-bottom: var(--spacing-2);
-  opacity: .85;
+  opacity: .9;
 }
 
 .button:hover,
@@ -236,7 +236,7 @@ nav .left-border {
 
 .separator div {
   grid-area: background;
-  background-image: url(https://simon.lecoq.io/as/v4/css/border.png);
+  background-image: url("https://simon.lecoq.io/as/v4/css/border.png");
   background-repeat: repeat-x;
   padding-top: var(--spacing-6);
 }
