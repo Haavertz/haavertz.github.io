@@ -1,0 +1,41 @@
+{
+  "blog": {},
+  "code": {},
+  "controls": { "minimize": "Minimize", "external" : "Open in new tab" },
+  "feed": {},
+  "filters": {},
+  "memory": {},
+  "menu": [
+    {
+      "id": "feed",
+      "name": "Feed"
+    },
+    {
+      "id": "blog",
+      "name": "Blog",
+      "disabled": true
+    },
+    {
+      "id": "code",
+      "name": "Code"
+    },
+    {
+      "id": "memory",
+      "name": "Memory",
+      "disabled": true
+    },
+    {
+      "id": "resume",
+      "name": "Resume"
+    },
+    {
+      "id": "social",
+      "name": "Social"
+    }
+  ],
+  "metadata": {},
+  "placeholder": {},
+  "repository":{ "repository":"Repository", "documentation":"Documentation", "link":"Link", "language":"Language", "commits":"Commits", "created":"Created", "updated":"Updated" },
+  "resume": {},
+  "social": {}
+}
