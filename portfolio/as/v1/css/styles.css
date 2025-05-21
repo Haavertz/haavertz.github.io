@@ -283,6 +283,84 @@ header .title {
 }
 
 
+/* == Extended section ============================================================= */
+
+.extended {
+  grid-area: auto / aside / auto / section;
+  display: flex;
+  flex-direction: column;
+}
+
+/* == Feed tab ========================================================================= */
+
+.feed .grid {
+  display: grid;
+  grid-template-columns: 5fr;
+  grid-template-areas:
+    "profile"
+    "timeline";
+  gap: var(--spacing-5);
+}
+
+.feed .profile {
+  /* opacity: .8; */
+  background-color: var(--background);
+  padding: var(--spacing-5);
+  grid-area: profile;
+  color: var( --text);
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.feed .profile-card {
+  position: relative;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: fit-content;
+  fill: var(--white);
+}
+
+.feed .profile-card .avatar img{
+  margin: 0 auto;
+  border-radius: 50%;
+  padding-bottom: var(--spacing-2);
+}
+
+.feed .timeline {
+  grid-area: timeline;
+  background-color: var(--background);
+  padding: var(--spacing-3);
+}
+
+.feed .profile .name { font-size: var(--font-tallest); }
+.feed .profile .level span{ margin: var(--spacing-2) 0;}
+.feed .profile .name-alt {
+  font-size: var(--font-tall);
+  margin-bottom: var(--spacing-9);
+}
+
+.feed .profile .info > div{ padding: var(--spacing-1) 0; }
+
+@media (min-width: 1180px) {
+  .feed .grid {
+    grid-template-columns: 1.25fr 3.75fr;
+    grid-template-areas: "profile timeline";
+  }
+  .feed .profile-card .avatar:hover::after {
+    position: absolute;
+    bottom: 0;
+    right: 30%;
+    z-index: 1;
+    content: "👽";
+    rotate: 20deg;
+    font-size: var(--font-tallest);
+  }
+}
+
+
+
 /* == Resume tab ========================================================================= */
 
 article .frame .wrapper {
