@@ -295,10 +295,10 @@ header .title {
 
 .feed .grid {
   display: grid;
-  grid-template-columns: 5fr;
+  grid-template-columns: 2fr;
   grid-template-areas:
-    "profile"
-    "timeline";
+    "profile timeline ."
+    "certi timeline .";
   gap: var(--spacing-5);
 }
 
@@ -338,10 +338,26 @@ header .title {
 .feed .profile .level span{ margin: var(--spacing-2) 0;}
 .feed .profile .name-alt {
   font-size: var(--font-tall);
-  margin-bottom: var(--spacing-9);
+  margin-bottom: var(--spacing-8);
 }
 
 .feed .profile .info > div{ padding: var(--spacing-1) 0; }
+.feed .profile .info > div > svg{ padding-right: var(--spacing-2); }
+
+.feed .profile .about {
+  color: transparent;
+  background: linear-gradient(to right, var(--white) 0%, var(--white) 50%, var(--text) 50%, var(--text) 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-position 1s ease-in;
+  padding-bottom: var(--spacing-3);
+}
+
+.feed .profile .about:hover {
+  background-position: 0 0;
+}
 
 @media (min-width: 1180px) {
   .feed .grid {
