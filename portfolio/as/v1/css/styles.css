@@ -104,7 +104,7 @@ main {
   transition: var(--button-select-animation) ease-out;
 }
 
-.button>div::before {
+.button>div::before, .feed .timeline .header .name::before{
   content: "■";
   margin-right: var(--spacing-2);
 }
@@ -297,13 +297,12 @@ header .title {
   display: grid;
   grid-template-columns: 2fr;
   grid-template-areas:
-    "profile timeline ."
-    "certi timeline .";
+    "profile"
+    "timeline";
   gap: var(--spacing-5);
 }
 
 .feed .profile {
-  /* opacity: .8; */
   background-color: var(--background);
   padding: var(--spacing-5);
   grid-area: profile;
@@ -328,10 +327,12 @@ header .title {
   padding-bottom: var(--spacing-2);
 }
 
-.feed .timeline {
-  grid-area: timeline;
+.feed .timeline { grid-area: timeline; }
+
+.feed .timeline article {
+  width: 100%;
   background-color: var(--background);
-  padding: var(--spacing-3);
+  margin-bottom: var(--spacing-5);
 }
 
 .feed .profile .name { font-size: var(--font-tallest); }
@@ -355,7 +356,7 @@ header .title {
   padding-bottom: var(--spacing-3);
 }
 
-.feed .profile .about:hover {
+.feed .profile .about:hover{
   background-position: 0 0;
 }
 
@@ -364,18 +365,76 @@ header .title {
     grid-template-columns: 1.25fr 3.75fr;
     grid-template-areas: "profile timeline";
   }
-  .feed .profile-card .avatar:hover::after {
-    position: absolute;
-    bottom: 0;
-    right: 30%;
-    z-index: 1;
-    content: "👽";
-    rotate: 20deg;
-    font-size: var(--font-tallest);
+  .feed .profile-card .avatar {
+    position: relative;
   }
+  
+  .feed .profile-card .avatar .hand {
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    z-index: 1;
+    display: none;
+  }
+  
+  .feed .profile-card .avatar:hover .hand {
+    display: inline;
+  }  
 }
 
+.feed .timeline .header { 
+  display: flex; 
+  justify-content: space-between; 
+  background-color: var(--black);
+  color: var(--white);
+}
 
+.feed .timeline .header .date { 
+  font-size: var(--font-small); 
+  padding: var(--spacing-1) 0 var(--spacing-2) var(--spacing-5); 
+}
+
+.feed .timeline .header .name { 
+  font-size: var(--font-tall); 
+  padding-left: var(--spacing-2); 
+}
+
+section .timeline article .body {
+  color: var(--text);
+  padding: var(--spacing-3) var(--spacing-7);
+  position: relative;
+}
+
+/* == Medata tab ========================================================================= */
+
+section .metadata .languages { display: flex; }
+
+section .metadata .languages > div {
+  padding: var(--spacing-1) var(--spacing-4) var(--spacing-2);
+  cursor: pointer;
+  flex: 1 1 0;
+  transition: background-color var(--button-select-animation) ease-out, color var(--button-select-animation) ease-out;
+}
+
+section .metadata .languages > div.active, section .metadata .languages > div:hover {
+  color: var(--white);
+  animation: flash var(--button-flash-animation) infinite;
+  background-color: var(--gray);
+}
+
+section .metadata .languages > div.active:hover {
+  color: var(--gray);
+  background-color: var(--blank);
+}
+
+section .metadata .languages > div.disabled {
+  cursor: not-allowed;
+  opacity: var(--disabled-opacity);
+}
+
+section .metadata .languages > div.disabled.missing {
+  background-color: var(--error);
+}
 
 /* == Resume tab ========================================================================= */
 
