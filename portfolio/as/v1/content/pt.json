@@ -5,7 +5,11 @@
     "minimize": "Minimizar", 
     "external": "Abrir em nova aba" 
   },
-  "feed": {},
+  "feed": [
+    { "title" : "Feed" },
+    { "profile" : { "name" : "Gleison Silva", "age" : "18"} },
+    { "0" : "" }
+  ],
   "filters": {},
   "memory": {},
   "menu": [
