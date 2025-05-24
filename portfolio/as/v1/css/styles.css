@@ -360,6 +360,14 @@ header .title {
   background-position: 0 0;
 }
 
+.feed .profile-card .avatar .hand {
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+  z-index: 1;
+  display: none;
+}
+
 @media (min-width: 1180px) {
   .feed .grid {
     grid-template-columns: 1.25fr 3.75fr;
@@ -367,14 +375,6 @@ header .title {
   }
   .feed .profile-card .avatar {
     position: relative;
-  }
-  
-  .feed .profile-card .avatar .hand {
-    position: absolute;
-    bottom: 10%;
-    right: 20%;
-    z-index: 1;
-    display: none;
   }
   
   .feed .profile-card .avatar:hover .hand {
