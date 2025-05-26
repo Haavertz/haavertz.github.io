@@ -1,6 +1,6 @@
 (async function () {
   const nav_buttons = document.querySelectorAll('.button');
-  const map_path = { 0 : "", 1 : "", 2 : "", 3 : "", 4 : "./resume.html", 5 : "" }
+  const map_path = { 0 : "./index.html", 1 : "", 2 : "./code.html", 3 : "", 4 : "./resume.html", 5 : "" }
   nav_buttons.forEach((button, index) => {
     button.addEventListener('click', () => {
       if (button.classList.contains('disabled')) return; 
