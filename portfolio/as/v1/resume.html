@@ -174,11 +174,11 @@
       </section>
     </div>
   </main>
-
+<!--
   <aside>
     If you want to get my resume in PDF, <a href="#" onclick="generatePDF()" >click here.</a>
   </aside> 
-
+-->
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -380,16 +380,16 @@
   </style>
   <script >
 
-    function generatePDF() {
-      const element = document.querySelector('main');
-      const opt = {
-        filename:     'Gleison-Silva-Resume.pdf',
-        image:        { type: 'jpeg', quality: 1 },
-        html2canvas:  { scrollY: 0},
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
-    }
+    // function generatePDF() {
+    //   const element = document.querySelector('main');
+    //   const opt = {
+    //     filename:     'Gleison-Silva-Resume.pdf',
+    //     image:        { type: 'jpeg', quality: 1 },
+    //     html2canvas:  { scrollY: 0},
+    //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    //   };
+    //   html2pdf().set(opt).from(element).save();
+    // }
 
     let state = false;
     function toggleCertifications() {
