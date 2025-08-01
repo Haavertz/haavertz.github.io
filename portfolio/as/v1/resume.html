@@ -380,16 +380,16 @@
   </style>
   <script >
 
-    // function generatePDF() {
-    //   const element = document.querySelector('main');
-    //   const opt = {
-    //     filename:     'Gleison-Silva-Resume.pdf',
-    //     image:        { type: 'jpeg', quality: 1 },
-    //     html2canvas:  { scrollY: 0},
-    //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    //   };
-    //   html2pdf().set(opt).from(element).save();
-    // }
+    function generatePDF() {
+      const element = document.querySelector('main');
+      const opt = {
+        filename:     'Gleison-Silva-Resume.pdf',
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scrollY: 0},
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
 
     let state = false;
     function toggleCertifications() {
